@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/registration.css">
+</head>
+
+<body onload="navButton()">
+    <header>
+        <nav>
+            <ul>
+                <div class="nav-button">
+                    <li class="nav-home">
+                        <a href="../index.html">
+                            <i class="fas fa-home"></i>
+                        </a>
+                    </li>
+                    <li class="nav-menu">
+                        <a href="javascript:void(0)" onclick="switchNav()">
+                            <!-- Laptop -->
+                            <i class="fas fa-bars menu desktop closed"></i>
+                            <i class='fas fa-times menu desktop open'></i>
+                            <!-- Mobile -->
+                            <i class="fas fa-caret-down menu mobile closed"></i>
+                            <i class="fas fa-caret-up menu mobile open"></i>
+                            <br>
+                        </a>
+                    </li>
+                </div>
+                <li class="nav-item">
+                    <a href="newsletter.html">Newsletter</a>
+                </li>
+                <li class="nav-item">
+                    <a href="javascript:void(0)" onclick="switchNav()">Registration Form</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Course Registration Form</h1>
+        <hr>
+        <div class="wrapper">
+            <p>
+                Fill out the following form to register for our courses
+            </p>
+            <p class="mandatory-field">
+                <span class="form-required">*</span>-Mandatory Field
+            </p>
+            <form id="registration-form" onsubmit="return validateForm()">
+                <table>
+                    <tr>
+                        <td>
+                            <label for="name">Your Name: <span class="form-required">*</span></label>
+                        </td>
+                        <td>
+                            <input type="text" id="name" name="name">
+                            <div class="form-validation">
+                                <span>
+                                    <i class='fas fa-times'></i> Please enter a valid name
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="id">Union ID #: <span class="form-required">*</span></label>
+                        </td>
+                        <td>
+                            <input type="hidden" id="id" name="unionID">
+                            U &nbsp; <input type="text" class="union-id" oninput="idInput()">
+                            -
+                            <input type="text" class="union-id" oninput="idInput()">
+                            &nbsp; Example: U 1234-5678
+                            <div class="form-validation">
+                                <span>
+                                    <i class='fas fa-times'></i> Please enter a valid Union ID
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="number">Phone #: <span class="form-required">*</span></label>
+                        </td>
+                        <td>
+                            <input type="hidden" id="number" name="phoneNumber">
+                            (<input type="tel" class="phone-number">)
+                            <input type="tel" class="phone-number" maxlength="10">
+                            <div class="form-validation">
+                                <span>
+                                    <i class='fas fa-times'></i> Please enter a valid number
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="email">Email Address: <span class="form-required">*</span></label>
+                        </td>
+                        <td>
+                            <input type="email" id="email" name="eMail" oninput="validateEMail()">
+                            <div class="form-validation">
+                                <span>
+                                    <i class='fas fa-times'></i> Please enter a valid email address
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="course">Course: <span class="form-required">*</span></label>
+                        </td>
+                        <td>
+                            <select name="course" id="course">
+                                <option value=""></option>
+                                <option value="ipm">Integrated Program in Management</option>
+                                <option value="pgp">Post Graduate Program</option>
+                                <option value="pgdm">Post Graduate Diploma Program</option>
+                                <option value="fp">Fellowship</option>
+                            </select>
+                            <div class="form-validation">
+                                <span>
+                                    <i class='fas fa-times'></i> Please select a course
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="address">Address:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="address" name="address">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="city">City:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="city" name="city">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="province">Province:</label>
+                        </td>
+                        <td>
+                            <select name="province" id="province">
+                                <option value=""></option>
+                                <option value="BH">Bihar</option>
+                                <option value="GJ">Gujrat</option>
+                                <option value="HR">Haryana</option>
+                                <option value="JNK">Jammu & Kashmir</option>
+                                <option value="KL">Kerela</option>
+                                <option value="RJ">Rajasthan</option>
+                                <option value="UP">Uttar Pradesh</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="postal">Postal Code:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="postal" name="postalCode" maxlength="6">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="local">Local Union:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="local" name="localUnion">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="comment">Comments:</label>
+                        </td>
+                        <td>
+                            <textarea name="comment" id="comment"></textarea>
+                        </td>
+                    </tr>
+                </table>
+
+                <p>
+                    Have you taken any past courses with Indian Institute of Management Rohtak?
+                </p>
+                <input type="radio" id="yes" name="history" value="yes">
+                <label for="yes">Yes</label>
+                <input type="radio" id="no" name="history" value="no">
+                <label for="no">No</label>
+                <br>
+                <input type="submit">
+            </form>
+        </div>
+    </main>
+    <!-- personal scripts -->
+    <script src="../scripts/script.js"></script>
+    <script src="../scripts/registration.js"></script>
+
+    <!-- fontawesome icons -->
+    <script src="https://kit.fontawesome.com/4ed8ca8e51.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+main {
+  box-sizing: border-box;
+  margin: 0 1em;
+}
+
+h1 {
+  font-size: clamp(2.5em, 7vw, 4em);
+  color: darkred;
+  line-height: 1.25em;
+  margin-bottom: 0;
+}
+
+hr {
+  border: none;
+  border-top: 2px solid rgb(150, 150, 150);
+}
+
+.mandatory-field {
+  font-size: 0.9em;
+  color: rgb(150, 150, 150);
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0 1em;
+  width: 90%;
+}
+
+td {
+  text-align: start;
+  vertical-align: top;
+}
+
+.form-validation {
+  font-size: 0.75em;
+  opacity: 0;
+  transition: opacity calc(var(--time) / 4);
+  color: red;
+}
+
+.form-validation.show {
+  opacity: 1;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  padding: 0.5em;
+}
+
+select {
+  width: 90%;
+}
+
+input[type="submit"] {
+  background-color: darkred;
+  color: white;
+  border: none;
+  font-size: 1em;
+  padding: 0.5em 2em;
+  border-radius: 0.25em;
+  margin: 0.75em 0;
+  box-shadow: 0 0 0.1em black;
+}

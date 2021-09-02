@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap");
+
+:root {
+  --time: 1s;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins";
+  font-size: 1em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  position: sticky;
+  top: 0;
+}
+
+nav {
+  color: white;
+  background-color: rgb(34, 34, 34);
+  box-shadow: 0 0 0.5em black;
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.nav-button {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.nav-button li {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.nav-button .nav-menu {
+  justify-content: flex-end;
+}
+
+.nav-button a {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  margin: 1vh 2vw;
+}
+
+.nav-button i {
+  position: absolute;
+  transition: all calc(var(--time) / 3);
+}
+
+.nav-button .menu {
+  z-index: -1;
+  opacity: 0;
+}
+
+.nav-button .active {
+  z-index: 1;
+  opacity: 1;
+}
+
+.nav-item {
+  overflow: hidden;
+  opacity: 0;
+  height: 0;
+  transition: height calc(var(--time) / 2) calc(var(--time) / 2),
+    opacity calc(var(--time) / 2);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 0.9em;
+  margin: 0 0.5em;
+  border-bottom: 1px solid purple;
+}
+
+.nav-item.mobile-active {
+  opacity: 1;
+  height: 3em;
+  transition: height calc(var(--time) / 2),
+    opacity calc(var(--time) / 2) calc(var(--time) / 2);
+}
+
+.form-required {
+  color: red;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    display: flex;
+    flex-direction: row;
+  }
+
+  nav {
+    height: 100vh;
+  }
+
+  .nav-button {
+    flex-direction: column;
+  }
+
+  .nav-button .nav-menu {
+    order: 1;
+    justify-content: center;
+  }
+
+  .nav-button .nav-home {
+    order: 2;
+    justify-content: center;
+  }
+
+  .nav-item {
+    height: 4em;
+    width: 0;
+    justify-content: center;
+    transition: opacity calc(var(--time) / 2), width 0s var(--time);
+  }
+
+  .nav-item.desktop-active {
+    width: 90%;
+    opacity: 1;
+    transition: opacity calc(var(--time) / 2) calc(var(--time) / 3), width 0s 0s;
+  }
+
+  nav {
+    position: fixed;
+    width: 5vw;
+    transition: all var(--time);
+  }
+
+  nav.active {
+    width: 20vw;
+  }
+
+  main {
+    margin-left: 7.5vw !important;
+  }
+}

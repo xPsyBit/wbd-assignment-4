@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/newsletter.css"">
+</head>
+
+<body onload=" navButton()">
+    <header>
+        <nav>
+            <ul>
+                <div class="nav-button">
+                    <li class="nav-home">
+                        <a href="../index.html">
+                            <i class="fas fa-home"></i>
+                        </a>
+                    </li>
+                    <li class="nav-menu">
+                        <a href="javascript:void(0)" onclick="switchNav()">
+                            <!-- Laptop -->
+                            <i class="fas fa-bars menu desktop closed"></i>
+                            <i class='fas fa-times menu desktop open'></i>
+                            <!-- Mobile -->
+                            <i class="fas fa-caret-down menu mobile closed"></i>
+                            <i class="fas fa-caret-up menu mobile open"></i>
+                            <br>
+                        </a>
+                    </li>
+                </div>
+                <li class="nav-item">
+                    <a href="javascript:void(0)" onclick="switchNav()">Newsletter</a>
+                </li>
+                <li class="nav-item">
+                    <a href="registration.html">Registration Form</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Newsletter Signup</h1>
+        <form autocomplete="off">
+            <div class="form-section" id="form-name">
+                <div class="name-section">
+                    <label for="first-name">First Name</label><br>
+                    <input type="text" id="first-name" name="fName" placeholder="E.g. Joe"><br>
+                </div>
+                <div class="name-section">
+                    <label for="last-name">Last Name</label><br>
+                    <input type="text" id="last-name" name="lName" placeholder="E.g. Mama"><br>
+                </div>
+            </div>
+            <div class="form-section" id="form-email">
+                <label for="email">E-mail <span class="form-required">*</span> </label><br>
+                <input type="email" id="email" name="eMail" required placeholder="E.g. joemama@gmail.com"
+                    oninput="typingValidateForm()"><br>
+                <div class="form-validation">
+                    <span class="correct">
+                        <i class='fas fa-check'></i> Valid email address
+                    </span>
+                    <span class="wrong">
+                        <i class='fas fa-times'></i> Please enter valid email address
+                    </span>
+                    <br>
+                </div>
+            </div>
+            <div class="form-section" id="form_submit">
+                <input type="submit" onclick="validateForm()">
+            </div>
+            <div class="form-section" id="form-tips">
+                <span class="form-required">*Required</span>
+            </div>
+        </form>
+    </main>
+
+    <!-- personal scripts -->
+    <script src="../scripts/script.js"></script>
+    <script src="../scripts/newsletter.js"></script>
+
+    <!-- fontawesome icons -->
+    <script src="https://kit.fontawesome.com/4ed8ca8e51.js" crossorigin="anonymous"></script>
+    </body>
+
+</html>
