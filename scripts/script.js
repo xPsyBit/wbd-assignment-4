@@ -2,7 +2,7 @@ var mediaQuery = window.matchMedia("(min-width: 768px)");
 var navOpen = false;
 
 function navButton() {
-  allNavButtons = document.querySelectorAll(".nav-button .menu");
+  const allNavButtons = document.querySelectorAll(".nav-button .menu");
   for (var i = 0; i < allNavButtons.length; i++) {
     allNavButtons[i].classList.remove("active");
   }
@@ -42,21 +42,13 @@ function navButton() {
 }
 mediaQuery.addEventListener("change", navButton);
 
-function closeNavDesktop() {
-  console.log("close");
-}
-
-function openNavDesktop() {
-  console.log("open");
-}
-
 function switchNav() {
   navOpen = !navOpen;
   navButton();
   //   All if statements use !navOpen since it has been reversed here
   //   It has been reversed to ensure correct state of navOpen for navButton()
 
-  navItems = document.querySelectorAll(".nav-item");
+  const navItems = document.querySelectorAll(".nav-item");
   if (mediaQuery.matches) {
     if (!navOpen) {
       for (var i = 0; i < navItems.length; i++) {
@@ -80,4 +72,17 @@ function switchNav() {
       }
     }
   }
+}
+
+function pgLoad() {
+  navButton();
+  document.querySelector("main").style.opacity = '1';
+}
+
+function openLink(link) {
+  const animationDurationInSeconds = getComputedStyle(document.body).getPropertyValue('--time');
+  const animationDuration = parseInt(animationDurationInSeconds) * 1000;
+  setTimeout(function(){
+    window.location.href = link;
+  }, animationDuration);
 }

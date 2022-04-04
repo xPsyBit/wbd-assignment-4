@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="../css/newsletter.css"">
 </head>
 
-<body onload=" navButton()">
+<body onload=" pgLoad()">
     <header>
         <nav>
             <ul>
                 <div class="nav-button">
                     <li class="nav-home">
-                        <a href="../index.html">
+                        <a href="javascript:void(0)" onclick="switchNav(); openLink('../index.html')">
                             <i class="fas fa-home"></i>
                         </a>
                     </li>
@@ -36,7 +36,7 @@
                     <a href="javascript:void(0)" onclick="switchNav()">Newsletter</a>
                 </li>
                 <li class="nav-item">
-                    <a href="registration.html">Registration Form</a>
+                    <a href="javascript:void(0)" onclick="switchNav(); openLink('registration.html')">Registration Form</a>
                 </li>
             </ul>
         </nav>
